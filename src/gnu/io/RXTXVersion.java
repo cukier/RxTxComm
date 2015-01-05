@@ -58,38 +58,40 @@
 package gnu.io;
 
 /**
-A class to keep the current version in
-*/
+ * A class to keep the current version in
+ */
 
-public class RXTXVersion
-{
-/*------------------------------------------------------------------------------
-	RXTXVersion  
-	accept:       -
-	perform:      Set Version.
-	return:       -
-	exceptions:   Throwable
-	comments:     
-		      See INSTALL for details.
-------------------------------------------------------------------------------*/
+public class RXTXVersion {
+	/*------------------------------------------------------------------------------
+	 RXTXVersion  
+	 accept:       -
+	 perform:      Set Version.
+	 return:       -
+	 exceptions:   Throwable
+	 comments:     
+	 See INSTALL for details.
+	 ------------------------------------------------------------------------------*/
 	private static String Version;
 
 	static {
-		RXTXVersion.loadLibrary( "rxtxSerial" );
-		Version = "RXTX-2.2 (CVS snapshot 2011.02.03, modified by CMU CREATE Lab, http://code.google.com/p/create-lab-commons/)";
+		RXTXVersion.loadLibrary("rxtxSerial");
+		Version = "RXTX-2.2pre2";
+		// Version =
+		// "RXTX-2.2 (CVS snapshot 2011.02.03, modified by CMU CREATE Lab, http://code.google.com/p/create-lab-commons/)";
 	}
+
 	/**
-	*  static method to return the current version of RXTX
-	*  unique to RXTX.
-	*  @return a string representing the version  "RXTX-1.4-9"
-	*/
-	public static String getVersion()
-	{
-		return(Version);
+	 * static method to return the current version of RXTX unique to RXTX.
+	 * 
+	 * @return a string representing the version "RXTX-1.4-9"
+	 */
+	public static String getVersion() {
+		return (Version);
 	}
+
 	public static native String nativeGetVersion();
 
- 	static void loadLibrary (String baseName) {
+	static void loadLibrary(String baseName) {
 		if (System.getProperty("sun.arch.data.model", "").equals("64")) {
 			try {
 				System.loadLibrary(baseName + "64");
